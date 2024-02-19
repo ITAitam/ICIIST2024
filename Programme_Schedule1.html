@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICIIST 2024</title>
+    <style>
+      * {
+box-sizing: border-box;
+}
+
+/* Set a background color */
+body {
+  background: url(./bg1.jpg);
+        
+        background-size: 100% 100%;
+        background-attachment: fixed;
+        height:auto;
+font-family: Helvetica, sans-serif;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline {
+position: relative;
+max-width: 1200px;
+margin: 0 auto;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline::after {
+content: '';
+position: absolute;
+width: 6px;
+background-color: white;
+top: 0;
+bottom: 0;
+left: 50%;
+margin-left: -3px;
+}
+
+/* Container around content */
+.container {
+padding: 10px 40px;
+position: relative;
+background-color: inherit;
+width: 50%;
+  height:120px;
+}
+
+/* The circles on the timeline */
+.container::after {
+content: '';
+position: absolute;
+width: 25px;
+height: 25px;
+right: -17px;
+background-color: white;
+border: 4px solid #FF9F55;
+top: 15px;
+border-radius: 50%;
+z-index: 1;
+}
+
+/* Place the container to the left */
+.left {
+left: 0;
+}
+
+/* Place the container to the right */
+.right {
+left: 50%;
+}
+
+/* Add arrows to the left container (pointing right) */
+.left::before {
+content: " ";
+height: 0;
+position: absolute;
+top: 22px;
+width: 0;
+z-index: 1;
+right: 30px;
+border: medium solid white;
+border-width: 10px 0 10px 10px;
+border-color: transparent transparent transparent white;
+}
+
+/* Add arrows to the right container (pointing left) */
+.right::before {
+content: " ";
+height: 0;
+position: absolute;
+top: 22px;
+width: 0;
+z-index: 1;
+left: 30px;
+border: medium solid white;
+border-width: 10px 10px 10px 0;
+border-color: transparent white transparent transparent;
+}
+
+/* Fix the circle for containers on the right side */
+.right::after {
+left: -16px;
+}
+
+/* The actual content */
+.content {
+padding: 10px 10px;
+background-color: white;
+position: relative;
+border-radius: 6px;
+/* color:white; */
+}
+
+/* Media queries - Responsive timeline on screens less than 600px wide */
+@media screen and (max-width: 600px) {
+/* Place the timelime to the left */
+.timeline::after {
+  left: 31px;
+}
+
+/* Full-width containers */
+.container {
+  width: 100%;
+  padding-left: 70px;
+  padding-right: 25px;
+}
+
+/* Make sure that all arrows are pointing leftwards */
+.container::before {
+  left: 60px;
+  border: medium solid white;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent white transparent transparent;
+}
+
+/* Make sure all circles are at the same spot */
+.left::after, .right::after {
+  left: 15px;
+}
+
+/* Make all right containers behave like the left ones */
+.right {
+  left: 0%;
+}
+}
+  </style>
+    <link
+    rel="stylesheet"
+    href="../../adityatekkali.edu.in/ICETSTEM2K23/assets/css/app.css"
+  />
+  <link
+  rel="stylesheet"
+  href="../../adityatekkali.edu.in/ICETSTEM2K23/assets/css/vendor/icomoon.css"
+/>
+</head>
+<body>
+    <header class="edu-header header-style-7 no-topbar" style="background-color: white;position: fixed;top:0;width: 100%;">
+        <div id="edu-sticky-placeholder"></div>
+        <div class="header-mainmenu">
+          <div class="container-fluid">
+            <div class="header-navbar">
+              <div class="header-brand">
+                <div class="logo">
+                  <a href="./index.html">
+                    <img
+                      class="logo-light"
+                      src="./logoz.jpg"
+                      alt="Corporate Logo" style="height:60px;width:150px"
+                    />
+                    <!-- <img
+                      class="logo-dark"
+                      src="../../adityatekkali.edu.in/ICETSTEM2K23/assets/images/logo/logo-light-2.png"
+                      alt="Corporate Logo"
+                    /> -->
+                  </a>
+                </div>
+              </div>
+              <div class="header-mainnav">
+                <nav class="mainmenu-nav">
+                  <ul class="mainmenu">
+                    <li>
+                      <a href="./commitees.html">Committees</a>
+                      <!-- <ul class="mega-menu">
+                        <li>
+                          <ul class="submenu mega-sub-menu-01">
+                            <li>
+                              <a href="chiefpatrons.php"
+                                >Chief Patrons<span class="badge-1"
+                                  >New</span
+                                ></a
+                              >
+                            </li>
+                            <li><a href="patrons.php">Patrons</a></li>
+                            <li>
+                              <a href="programmeChair.php">Programme Chair</a>
+                            </li>
+                            <li>
+                              <a href="conveners.php"
+                                >Conveners<span class="badge-1">new</span></a
+                              >
+                            </li>
+                            <li>
+                              <a href="programmeCoChair.php">General Chair</a>
+                            </li>
+                            <li>
+                              <a href="honoraryChair.php">Honorary Chair</a>
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          <ul class="submenu mega-sub-menu-01">
+                            <li>
+                              <a href="honoraryChair.php">Editorial Board</a>
+                            </li>
+                            <li>
+                              <a href="internationalAdvisoryCommittee.php"
+                                >International Advisory Committee</a
+                              >
+                            </li>
+                            <li>
+                              <a href="nationalAdvisoryCommittee.php"
+                                >National Advisory Committee</a
+                              >
+                            </li>
+                            <li>
+                              <a href="programCommittee.php"
+                                >Program Committee</a
+                              >
+                            </li>
+                            <li>
+                              <a href="technicalCommittee.php"
+                                >Technical Committee</a
+                              >
+                            </li>
+                            <li>
+                              <a href="organizingCommittee.php"
+                                >Organizing Committee</a
+                              >
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          <ul class="submenu mega-sub-menu-01">
+                            <li>
+                              <a href="conferenceProceedingsCommittee.php"
+                                >Conference Proceedings Committee</a
+                              >
+                            </li>
+                            <li>
+                              <a href="conferenceProceedingsCommittee.php"
+                                >Review Committee</a
+                              >
+                            </li>
+                            <li>
+                              <a href="websiteManagementCommittee.php"
+                                >Website Management Committee</a
+                              >
+                            </li>
+                            <li>
+                              <a href="sponsorshipCommittee.php"
+                                >Sponsorship Committee</a
+                              >
+                            </li>
+                            <li>
+                              <a href="workshopCommittee.php"
+                                >Workshop Committee</a
+                              >
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li> -->
+                    <li><a href="./Call for papers.html">Call For Papers</a></li>
+                    <li><a href="./Programme_Schedule1.html">Programme Schedule</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                  </ul>
+                </nav>
+              </div>
+              <div class="header-right">
+                <ul class="header-action">
+                  <li class="search-bar">
+                    <div class="input-group">
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Search"
+                      />
+                      <button class="search-btn" type="button">
+                        <i class="icon-2"></i>
+                      </button>
+                    </div>
+                  </li>
+
+                  <li class="header-btn">
+                    <a href="#" class="edu-btn btn-medium btn-curved"
+                      >Register Now <i class="icon-4"></i
+                    ></a>
+                  </li>
+                  <!-- <li class="mobile-menu-bar d-block d-xl-none">
+                    <button class="hamberger-button">
+                      <i class="icon-54"></i>
+                    </button>
+                  </li> -->
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="popup-mobile-menu">
+          <div class="inner">
+            <div class="header-top">
+              <div class="logo">
+                <a href="index.html">
+                  <img
+                    class="logo-light"
+                    src="../../adityatekkali.edu.in/ICETSTEM2K23/assets/images/logo/logo-dark-2.png"
+                    alt="Corporate Logo"
+                  />
+                  <img
+                    class="logo-dark"
+                    src="../../adityatekkali.edu.in/ICETSTEM2K23/assets/images/logo/logo-light-2.png"
+                    alt="Corporate Logo"
+                  />
+                </a>
+              </div>
+              <div class="close-menu">
+                <button class="close-button">
+                  <i class="icon-73"></i>
+                </button>
+              </div>
+            </div>
+            <ul class="mainmenu">
+              <li class="has-droupdown">
+                <a href="#">Committees</a>
+                <ul class="mega-menu">
+                  <li>
+                    <ul class="submenu mega-sub-menu-01">
+                      <li>
+                        <a href="chiefpatrons.php"
+                          >Chief Patrons<span class="badge-1">New</span></a
+                        >
+                      </li>
+                      <li><a href="patrons.php">Patrons</a></li>
+                      <li><a href="programmeChair.php">Programme Chair</a></li>
+                      <li>
+                        <a href="conveners.php"
+                          >Conveners<span class="badge-1">new</span></a
+                        >
+                      </li>
+                      <li><a href="programmeCoChair.php">General Chair</a></li>
+                      <li><a href="honoraryChair.php">Honorary Chair</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <ul class="submenu mega-sub-menu-01">
+                      <li><a href="honoraryChair.php">Editorial Board</a></li>
+                      <li>
+                        <a href="internationalAdvisoryCommittee.php"
+                          >International Advisory Committee</a
+                        >
+                      </li>
+                      <li>
+                        <a href="nationalAdvisoryCommittee.php"
+                          >National Advisory Committee</a
+                        >
+                      </li>
+                      <li>
+                        <a href="programCommittee.php">Program Committee</a>
+                      </li>
+                      <li>
+                        <a href="technicalCommittee.php">Technical Committee</a>
+                      </li>
+                      <li>
+                        <a href="organizingCommittee.php"
+                          >Organizing Committee</a
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <ul class="submenu mega-sub-menu-01">
+                      <li>
+                        <a href="conferenceProceedingsCommittee.php"
+                          >Conference Proceedings Committee</a
+                        >
+                      </li>
+                      <li>
+                        <a href="conferenceProceedingsCommittee.php"
+                          >Review Committee</a
+                        >
+                      </li>
+                      <li>
+                        <a href="websiteManagementCommittee.php"
+                          >Website Management Committee</a
+                        >
+                      </li>
+                      <li>
+                        <a href="sponsorshipCommittee.php"
+                          >Sponsorship Committee</a
+                        >
+                      </li>
+                      <li>
+                        <a href="workshopCommittee.php">Workshop Committee</a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li><a href="callforpaper.php">Call For Papers</a></li>
+              <li><a href="#">Programme Schedule</a></li>
+              <li><a href="#">Contact Us</a></li>
+            </ul>
+          </div>
+        </div>
+        <!-- Start Search Popup  -->
+        <div class="edu-search-popup">
+          <div class="content-wrap">
+            <div class="site-logo">
+              <img
+                class="logo-light"
+                src="../../adityatekkali.edu.in/ICETSTEM2K23/assets/images/logo/logo-dark.png"
+                alt="Corporate Logo"
+              />
+              <img
+                class="logo-dark"
+                src="../../adityatekkali.edu.in/ICETSTEM2K23/assets/images/logo/logo-white.png"
+                alt="Corporate Logo"
+              />
+            </div>
+            <div class="close-button">
+              <button class="close-trigger"><i class="icon-73"></i></button>
+            </div>
+            <div class="inner">
+              <form class="search-form" action="#">
+                <input
+                  type="text"
+                  class="edublink-search-popup-field"
+                  placeholder="Search Here..."
+                />
+                <button class="submit-button"><i class="icon-2"></i></button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- End Search Popup  -->
+      </header>
+
+      <div class="timeline" style="margin-top: 100px;">
+        <div class="container left">
+          <div class="content">
+            <h4>Submission Deadline</h4>
+            <p>The final date for the Submission is <strong>20th April , 2024</strong></p>
+          </div>
+        </div>
+        <div class="container right">
+          <div class="content">
+            <h4>Notification</h4>
+            <p>The Notification will be released on <strong>31st May , 2024</strong></p>
+          </div>
+        </div>
+        <div class="container left">
+            <div class="content">
+              <h4>Early Bird registration</h4>
+              <p>The deadline for Early Bird registration is <strong>08th June , 2024</strong></p>
+            </div>
+          </div>
+          <div class="container right">
+            <div class="content">
+              <h4>Regular registration</h4>
+              <p>The deadline for Regular registration is <strong>22nd June ,2024</strong></p>
+            </div>
+          </div>
+        <div class="container left">
+            <div class="content">
+              <h4>Camera Ready Version</h4>
+              <p>The Camera Ready Version should be done by <strong>22nd June 2024</strong></p>
+            </div>
+          </div>
+        <div class="container right">
+            <div class="content">
+              <h4>Date of Conference</h4>
+              <p>Date of Conference is <strong>July 05-06,2024</strong></p>
+            </div>
+          </div>
+      </div>
+      
+
+      <div class="footer" style="display: flex;background-color: white;color:black;width:1200px;height: 350px;;margin:100px 0px 0px 100px;justify-content:space-between;padding:50px 80px;">
+        <div class="11"style="width:300px;">
+          <a href="./index.html"><img src="./logoz.jpg" alt="" class="logi" style="height:60px;width:150px"></a>
+          <p>
+            International conferences on innovation, intelligent systems, and smart technologies serve as platforms for researchers, academicians, industry professionals, and policymakers to exchange ideas, share the latest research findings, and discuss advancements in various technological domains.</p>
+    
+        </div>
+        <div class="12">
+          <h3>Quick Links</h3>
+      <a href="./index.html"><li>About ICIIST 2024</li></a><br>
+      <a href="./Call for papers.html"><li>Call for Papers</li></a><br>
+      <a href="#"><li>E-Brochure</li></a><br>
+      <a href="./Programme_Schedule1.html"><li>Programme Schedule</li></a>
+        </div>
+        <div class="13">
+          <h3>Contact</h3>
+          <p>Address:K.Kotturu</p>
+          <p style="margin-top: -30px;">Tekkali,<br>Srikakulam</p>
+          <!-- <p>Call:+91-123456789</p>
+          <p>Email:icetstem2023@gmail.com</p> -->
+        </div>
+      </div>
+
+
+</body>
+</html>
